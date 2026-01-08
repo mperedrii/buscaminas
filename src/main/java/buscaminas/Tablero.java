@@ -80,15 +80,13 @@ public class Tablero {
 	public void calcularNumeros() {
 		for (int f = 0; f < numFilas; f++) {
 			for (int c = 0; c < numColumnas; c++) {
-				if (this.tablero[f][c].isMina()) {
+				Casilla casilla = this.tablero[f][c];
+
+				if (casilla.isMina()) {
 					continue;
 				}
 
-				int minasAlrededor = this.contarMinasAlrededor(f, c);
-				this.tablero[f][c].setNumero(minasAlrededor);
-				if (minasAlrededor == 0) {
-					this.tablero[f][c].setBlanco(true);
-				}
+				casilla.setNumero(this.contarMinasAlrededor(f, c));
 			}
 		}
 	}
