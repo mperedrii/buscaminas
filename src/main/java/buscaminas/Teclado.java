@@ -52,6 +52,22 @@ public class Teclado {
 	}
 
 	/**
+	 * Escribe en consola un mensaje de solicitud de un número entero positivo.
+	 */
+	public static int leerEnteroPositivo(String mensaje) {
+		System.out.print(mensaje);
+		int numero = teclado.nextInt();
+		teclado.nextLine(); // limpiar buffer de lectura
+		while (numero < 0) {
+			System.out.println("El dato introducido debe ser mayor o igual que cero.");
+			System.out.print(mensaje);
+			numero = teclado.nextInt();
+			teclado.nextLine(); // limpiar buffer de lectura
+		}
+		return numero;
+	}
+
+	/**
 	 * Escribe en consola un mensaje de solicitud de un número entero largo. Lee un
 	 * número entero largo por teclado. Devuelve el número entero largo leído.
 	 */
